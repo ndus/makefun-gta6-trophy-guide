@@ -9,6 +9,7 @@
   <script type="module" src="app.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#collection-title">Skip to checklist</a>
   <header class="topbar">
     <div class="shell topbar-inner">
       <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">✦</span> Leonida Platinum</a>
@@ -21,12 +22,12 @@
       <div class="hero-copy">
         <p class="eyebrow">GRAND THEFT AUTO VI · TROPHY GUIDE</p>
         <h1 id="title">Leonida <em>Platinum</em></h1>
-        <p class="subtitle">Your offline guide to all 55 PlayStation 5 trophies.</p>
+        <p class="subtitle">Track all 55 PlayStation 5 trophies offline.</p>
       </div>
       <section class="progress-card" aria-labelledby="progress-label">
         <div class="progress-header"><h2 class="eyebrow" id="progress-label">YOUR PROGRESS</h2><span id="percentage">0%</span></div>
-        <p class="progress-copy" id="progress-copy" aria-live="polite">Loading trophies…</p>
         <progress id="progress-bar" value="0" max="55" aria-labelledby="progress-label"></progress>
+        <p class="progress-copy" id="progress-copy" aria-live="polite">Loading trophies…</p>
         <div id="grade-counts" class="grade-counts"></div>
       </section>
     </section>
@@ -38,6 +39,9 @@
       </nav>
       <div class="utilities">
         <label class="shield"><input id="spoiler" type="checkbox"><span>Spoiler shield</span></label>
+        <label class="shield" id="remaining-option">
+          <input id="remaining" type="checkbox" aria-label="Remaining only"><span>Remaining only</span>
+        </label>
         <button id="export" type="button" disabled>Export</button>
         <button id="import" type="button" disabled>Import</button>
         <input id="import-file" type="file" accept=".json,application/json" hidden>
@@ -48,7 +52,7 @@
     <div class="workspace">
       <section class="collection" aria-labelledby="collection-title">
         <div class="collection-heading">
-          <h2 id="collection-title">Trophy checklist</h2>
+          <h2 id="collection-title" tabindex="-1">Trophy checklist</h2>
           <span id="result-count"></span>
         </div>
         <div id="filters" class="filters">

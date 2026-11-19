@@ -19,6 +19,17 @@ button, select, input[type="checkbox"] { cursor: pointer; }
 button { color: inherit; }
 button:disabled { cursor: default; opacity: .55; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.skip-link {
+  position: fixed;
+  inset: 12px auto auto 12px;
+  z-index: 2;
+  padding: 8px 12px;
+  border-radius: 7px;
+  background: var(--ink);
+  color: var(--pink);
+  transform: translateY(calc(-100% - 20px));
+}
+.skip-link:focus { transform: none; }
 h1, h2, h3, h4, p { margin: 0; }
 .shell { width: min(1184px, calc(100% - 64px)); margin-inline: auto; }
 .sr-only {
@@ -112,7 +123,7 @@ h1 em { color: var(--gold); font-style: normal; }
 }
 .progress-header { display: flex; align-items: baseline; justify-content: space-between; }
 #percentage { color: var(--gold); font-size: .81rem; font-weight: 750; }
-.progress-copy { margin-top: 3px; color: var(--muted); font-size: .96rem; }
+.progress-copy { margin-bottom: 8px; color: var(--muted); font-size: .96rem; }
 .progress-copy strong { color: #fff5fb; font-size: 1.52rem; }
 progress {
   appearance: none;
@@ -138,7 +149,7 @@ progress::-webkit-progress-value { background: linear-gradient(90deg, #f87aaa, #
 .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .view-nav, .utilities, .kinds, .filter-fields { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .view-nav { background: var(--ink); border: 1px solid var(--line); border-radius: 11px; padding: 4px; }
-.view-nav button, .kinds button, .utilities button, .reveal {
+.view-nav button, .kinds button, .utilities button, .detail-navigation button, .reveal {
   background: transparent;
   border: 1px solid transparent;
   border-radius: 7px;
@@ -152,7 +163,7 @@ progress::-webkit-progress-value { background: linear-gradient(90deg, #f87aaa, #
   border-color: #815071;
   color: #ffd3e8;
 }
-.utilities button, .reveal { border-color: var(--line); background: var(--ink); }
+.utilities button, .detail-navigation button, .reveal { border-color: var(--line); background: var(--ink); }
 button:not(:disabled):hover { border-color: #936487; }
 .shield { display: inline-flex; align-items: center; gap: 7px; margin-right: 6px; font-size: .83rem; color: #e7d9ed; cursor: pointer; }
 input[type="checkbox"] { accent-color: #f69ec5; width: 17px; height: 17px; margin: 0; flex: none; }
@@ -194,6 +205,12 @@ input[type="checkbox"] { accent-color: #f69ec5; width: 17px; height: 17px; margi
 }
 .trophy-row:hover { border-color: #815071; }
 .trophy-row.selected { background: #342037; border-color: #a65a82; box-shadow: inset 3px 0 #f29bc4; }
+.trophy-row:has(:focus-visible) {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+.trophy-row :focus-visible { outline-offset: -2px; }
+.print-state { display: none; }
 .trophy-trigger {
   display: flex;
   align-items: center;
@@ -244,6 +261,7 @@ input[type="checkbox"] { accent-color: #f69ec5; width: 17px; height: 17px; margi
 .detail h3 { font-size: 1.45rem; line-height: 1.14; letter-spacing: -.025em; overflow-wrap: anywhere; }
 .detail h4 { font-size: .9rem; margin-bottom: 5px; }
 .detail-mark { display: block; color: var(--pink); font-size: 1.4rem; margin-bottom: 5px; }
+.detail-navigation { display: flex; flex-wrap: wrap; gap: 6px; }
 .detail-tags { margin-top: 10px; }
 .detail-muted, .guide-text { margin-top: 7px; line-height: 1.4; font-size: .96rem; }
 .guide-label { margin-top: 13px; }
@@ -309,22 +327,41 @@ input[type="checkbox"] { accent-color: #f69ec5; width: 17px; height: 17px; margi
 }
 
 @media print {
-  :root { color-scheme: light; color: #171122; background: white; }
+  :root { color-scheme: light; color: black; background: white; }
   .shell { width: 100%; }
-  .hero { display: block; min-height: 0; margin: 0 0 16px; padding: 0; border: 0; background: none; }
-  .hero-art, .toolbar, .filters, .close, .arrow, .stage-jumps, .topbar, .status, .reveal { display: none; }
+  .skip-link, .topbar, .hero-art, .toolbar, .filters, .status, .detail,
+  .trophy-check, .trophy-trigger, .trophy-desc, .arrow, .stage-header p { display: none; }
+
+  .hero, .progress-card, .collection {
+    display: block;
+    min-height: 0;
+    margin: 0 0 12pt;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
   .hero-copy { text-shadow: none; }
-  h1, h1 em, .eyebrow, .subtitle, #percentage, .progress-copy, .progress-copy strong, .grade-total, .stage-number, .stage-count { color: #171122; }
-  .progress-card { margin-top: 12px; background: none; border-color: #777; }
-  .grade-counts { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .workspace { display: block; margin: 0; }
-  .collection, .detail, .trophy-row, .stage-header { background: white; border-color: #aaa; }
-  .trophy-row.selected { background: white; box-shadow: none; }
-  .detail { position: static; max-height: none; overflow: visible; margin-top: 16px; }
-  .detail:not(.has-selection) { display: none; }
-  .trophy-desc, .detail-muted, .citation, .stage-header p, #result-count, .stage-reference { color: #333; }
-  .grade-chip, .missable { color: #171122; background: white; border-color: #777; }
-  .missable-note { background: white; border-color: #777; }
-  .missable-note h4, .citation strong { color: #171122; }
-  .trophy-row, .stage-header, .missable-note { break-inside: avoid; }
+  h1 { font-size: 24pt; }
+  h1 em, .eyebrow, .subtitle, #percentage, #result-count,
+  .progress-copy, .progress-copy strong, .grade-total, .stage-number, .stage-count { color: black; }
+  .workspace, .roadmap, .trophy-list { display: block; margin: 0; }
+  .trophy-row, .trophy-row.selected, .stage-header {
+    background: white;
+    box-shadow: none;
+    border: 0;
+    border-bottom: 1px solid #aaa;
+    border-radius: 0;
+    padding: 4pt 0;
+    break-inside: avoid;
+  }
+  .stage-header { break-after: avoid; }
+  .print-state {
+    display: grid;
+    grid-template-columns: 1fr 6em 4em;
+    gap: 8pt;
+    width: 100%;
+    font-size: 10pt;
+  }
+  .print-state span { text-transform: capitalize; }
+  .trophy-row:has(:focus-visible) { outline: none; }
 }

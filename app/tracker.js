@@ -1,19 +1,43 @@
 const STORAGE_KEY = 'gta6-trophy-checklist';
+const EXPORT_FILENAME = 'leonida-platinum-progress.json';
+const PROGRESS_VERSION = 1;
+
+function downloadProgress(earned) {
+  const snapshot = { version: PROGRESS_VERSION, earned: [...earned].sort((a, b) => a - b) };
+  const file = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(file);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = EXPORT_FILENAME;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 
 export function createTracker(trophies) {
-  const validIds = new Set(trophies.map(trophy => trophy.id));
-  const idsByName = new Map(trophies.map(trophy => [trophy.name, trophy.id]));
+  const validIds = new Set(trophies.map(({ id }) => id));
+  const idsByName = new Map(trophies.map(({ name, id }) => [name, id]));
   let earned = new Set();
   let storageAvailable = true;
 
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
-    if (Array.isArray(saved)) {
-      // Older checklists stored names instead of IDs.
-      earned = new Set(saved.map(value => idsByName.get(value) ?? value).filter(id => validIds.has(id)));
+  // Legacy saves and exports used trophy names as their identifiers.
+  const resolveLegacyIds = entries => entries.map(entry => idsByName.get(entry) ?? entry);
+
+  function restore() {
+    let raw;
+    try {
+      raw = localStorage.getItem(STORAGE_KEY);
+    } catch {
+      storageAvailable = false;
+      return;
     }
-  } catch (error) {
-    storageAvailable = error instanceof SyntaxError;
+    try {
+      const entries = JSON.parse(raw ?? '[]');
+      if (Array.isArray(entries)) {
+        earned = new Set(resolveLegacyIds(entries).filter(id => validIds.has(id)));
+      }
+    } catch {
+      // A malformed save leaves the checklist empty and storage usable.
+    }
   }
 
   function save() {
@@ -25,10 +49,24 @@ export function createTracker(trophies) {
     }
   }
 
+  async function importProgress(file) {
+    const snapshot = JSON.parse(await file.text());
+    const entries = Array.isArray(snapshot)
+      ? resolveLegacyIds(snapshot)
+      : snapshot?.version === PROGRESS_VERSION ? snapshot.earned : null;
+    if (!Array.isArray(entries) || !entries.every(id => validIds.has(id))) {
+      throw new Error('Invalid trophy progress');
+    }
+    earned = new Set(entries);
+    save();
+  }
+
+  restore();
+
   return {
     get size() { return earned.size; },
     get storageAvailable() { return storageAvailable; },
-    has(id) { return earned.has(id); },
+    has: id => earned.has(id),
     set(id, checked) {
       if (!validIds.has(id)) return;
       if (checked) earned.add(id);
@@ -41,25 +79,7 @@ export function createTracker(trophies) {
       }
       save();
     },
-    export() {
-      const snapshot = { version: 1, earned: [...earned].sort((a, b) => a - b) };
-      const url = URL.createObjectURL(new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'leonida-platinum-progress.json';
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    },
-    async importProgress(file) {
-      const snapshot = JSON.parse(await file.text());
-      const ids = Array.isArray(snapshot)
-        ? snapshot.map(value => idsByName.get(value) ?? value)
-        : snapshot?.version === 1 ? snapshot.earned : null;
-      if (!Array.isArray(ids) || !ids.every(id => validIds.has(id))) {
-        throw new Error('Invalid trophy progress');
-      }
-      earned = new Set(ids);
-      save();
-    },
+    export: () => downloadProgress(earned),
+    importProgress,
   };
 }

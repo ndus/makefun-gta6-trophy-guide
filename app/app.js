@@ -1,26 +1,14 @@
 import { createTracker } from './tracker.js';
 import { stages } from './stages.js';
 
-const content = document.getElementById('content');
-const detail = document.getElementById('detail');
-const detailContent = document.getElementById('detail-content');
-const filters = document.getElementById('filters');
-const kinds = document.getElementById('kinds');
-const grade = document.getElementById('grade');
-const search = document.getElementById('search');
-const spoiler = document.getElementById('spoiler');
-const listView = document.getElementById('list-view');
-const roadmapView = document.getElementById('roadmap-view');
-const status = document.getElementById('status');
-const exportButton = document.getElementById('export');
-const importButton = document.getElementById('import');
-const importFile = document.getElementById('import-file');
-const progressCopy = document.getElementById('progress-copy');
-const progressBar = document.getElementById('progress-bar');
-const percentage = document.getElementById('percentage');
-const gradeCounts = document.getElementById('grade-counts');
-const collectionTitle = document.getElementById('collection-title');
-const resultCount = document.getElementById('result-count');
+const {
+  content, detail, 'detail-content': detailContent, filters, kinds, grade, search,
+  spoiler, remaining, 'remaining-option': remainingOption,
+  'list-view': listView, 'roadmap-view': roadmapView, status,
+  export: exportButton, import: importButton, 'import-file': importFile,
+  'progress-copy': progressCopy, 'progress-bar': progressBar, percentage,
+  'grade-counts': gradeCounts, 'collection-title': collectionTitle, 'result-count': resultCount,
+} = Object.fromEntries([...document.querySelectorAll('[id]')].map(node => [node.id, node]));
 
 const grades = ['platinum', 'gold', 'silver', 'bronze'];
 
@@ -31,10 +19,22 @@ function element(tag, className, text) {
   return node;
 }
 
+function progressMilestone(earned, total, hasPlatinum) {
+  if (hasPlatinum) return 'Platinum earned';
+  if (earned === 0) return 'Ready to start';
+  const completion = earned / total;
+  if (completion >= 0.9) return 'Nearly there';
+  if (completion >= 0.5) return 'Halfway or further';
+  if (completion >= 0.2) return 'Underway';
+  return 'Just started';
+}
+
 async function boot() {
   const response = await fetch('data/trophies.json');
   if (!response.ok) throw new Error('Trophy data could not be loaded');
   const { trophies } = await response.json();
+  trophies.sort((a, b) => a.id - b.id);
+  const platinum = trophies.find(trophy => trophy.grade === 'platinum');
   const byId = new Map(trophies.map(trophy => [trophy.id, trophy]));
   const tracker = createTracker(trophies);
   const query = new URLSearchParams(location.search);
@@ -45,6 +45,7 @@ async function boot() {
   let roadmapPromise;
   let kind = kindButtons.some(button => button.dataset.kind === query.get('kind')) ? query.get('kind') : 'all';
   let selectedId = Number(query.get('open'));
+  let openerId = selectedId;
   grade.value = grades.includes(query.get('grade')) ? query.get('grade') : 'all';
   spoiler.checked = query.get('spoiler') === '1';
   if (query.has('earned')) tracker.seed(query.get('earned').split(',').map(Number));
@@ -70,7 +71,8 @@ async function boot() {
   }
 
   function renderProgress() {
-    progressCopy.replaceChildren(element('strong', '', tracker.size), ` of ${trophies.length} earned`);
+    const milestone = progressMilestone(tracker.size, trophies.length, tracker.has(platinum?.id));
+    progressCopy.replaceChildren(element('strong', '', tracker.size), ` of ${trophies.length} earned · ${milestone}`);
     progressBar.value = tracker.size;
     percentage.textContent = `${Math.round(tracker.size / trophies.length * 100)}%`;
     gradeCounts.replaceChildren(...grades.map(value => {
@@ -101,24 +103,66 @@ async function boot() {
     const arrow = element('span', 'arrow', '›');
     arrow.setAttribute('aria-hidden', 'true');
     button.append(copy, tags, arrow);
-    row.append(box, button);
+    const printState = element('span', 'print-state');
+    printState.append(element('strong', '', nameOf(trophy)), element('span', '', trophy.grade),
+      element('span', '', box.checked ? 'Earned' : 'Open'));
+    row.append(box, button, printState);
     box.addEventListener('change', () => {
       tracker.set(trophy.id, box.checked);
       saveStatus();
+      const rows = [...content.querySelectorAll('.trophy-trigger')];
+      const index = rows.indexOf(button);
       render();
-      findRowControl(trophy.id, '.trophy-check')?.focus({ preventScroll: true });
+      const visible = content.querySelectorAll('.trophy-trigger');
+      const fallback = visible[Math.min(index, visible.length - 1)] ?? remaining;
+      (findRowControl(trophy.id, '.trophy-check') ?? fallback).focus({ preventScroll: true });
     });
     button.addEventListener('click', () => {
-      selectedId = trophy.id;
-      syncSelection();
-      renderDetail();
-      detailContent.querySelector('h3').focus();
+      openerId = trophy.id;
+      openTrophy(trophy.id);
     });
     return row;
   }
 
   function findRowControl(id, selector) {
     return content.querySelector(`[data-id="${id}"] ${selector}`);
+  }
+
+  function openTrophy(id, focusSelector = 'h3') {
+    selectedId = id;
+    syncSelection();
+    renderDetail();
+    detail.scrollTop = 0;
+    detailContent.querySelector(focusSelector).focus();
+  }
+
+  function closeTrophy() {
+    const closingId = selectedId;
+    selectedId = 0;
+    syncSelection();
+    renderDetail();
+    const fallback = view === 'list' ? search : roadmapView;
+    (findRowControl(closingId, '.trophy-trigger')
+      ?? findRowControl(openerId, '.trophy-trigger')
+      ?? fallback).focus();
+  }
+
+  function detailNavigation(trophy) {
+    const navigation = element('nav', 'detail-navigation');
+    navigation.setAttribute('aria-label', 'Browse all trophies');
+    const index = trophies.indexOf(trophy);
+    for (const [label, step] of [['Previous', -1], ['Next', 1]]) {
+      const button = element('button', '', label);
+      button.type = 'button';
+      button.dataset.step = step;
+      button.setAttribute('aria-label', `${label} trophy`);
+      button.addEventListener('click', () => {
+        const next = trophies[(index + step + trophies.length) % trophies.length];
+        openTrophy(next.id, `[data-step="${step}"]`);
+      });
+      navigation.append(button);
+    }
+    return navigation;
   }
 
   function syncSelection() {
@@ -157,13 +201,7 @@ async function boot() {
     const close = element('button', 'close', '×');
     close.type = 'button';
     close.setAttribute('aria-label', 'Close trophy guide');
-    close.addEventListener('click', () => {
-      const previous = selectedId;
-      selectedId = 0;
-      syncSelection();
-      renderDetail();
-      (findRowControl(previous, '.trophy-trigger') ?? (view === 'list' ? search : roadmapView)).focus();
-    });
+    close.addEventListener('click', closeTrophy);
     const title = element('h3', '', nameOf(trophy));
     title.tabIndex = -1;
     const tags = element('div', 'detail-tags');
@@ -171,7 +209,7 @@ async function boot() {
     if (trophy.missable) tags.append(element('span', 'missable', 'MISSABLE'));
 
     heading.append(title, close);
-    detailContent.append(heading, tags, element('p', 'detail-muted', descriptionOf(trophy)));
+    detailContent.append(heading, detailNavigation(trophy), tags, element('p', 'detail-muted', descriptionOf(trophy)));
     detailContent.append(element('p', 'stage-reference', `Stage ${trophy.stage} · ${stages[trophy.stage - 1]}`));
     const citation = element('p', 'citation');
     citation.append(element('strong', '', 'Source: '), trophy.source);
@@ -201,10 +239,11 @@ async function boot() {
     listView.setAttribute('aria-pressed', String(!onRoadmap));
     roadmapView.setAttribute('aria-pressed', String(onRoadmap));
     filters.hidden = onRoadmap;
+    remainingOption.hidden = onRoadmap;
     collectionTitle.textContent = onRoadmap ? 'Roadmap' : 'Trophy checklist';
 
     if (onRoadmap) {
-      resultCount.textContent = '6 stages';
+      resultCount.textContent = `${stages.length} stages`;
       if (renderRoadmap) {
         content.replaceChildren(renderRoadmap(trophies, tracker.has, renderRow));
       } else {
@@ -222,7 +261,7 @@ async function boot() {
       const term = search.value.trim().toLowerCase();
       const matches = trophies.filter(trophy => {
         const matchesKind = kind === 'all' || (kind === 'missable' ? trophy.missable : trophy.kind === kind);
-        return matchesKind && (grade.value === 'all' || trophy.grade === grade.value)
+        return matchesKind && (!remaining.checked || !tracker.has(trophy.id)) && (grade.value === 'all' || trophy.grade === grade.value)
           && `${trophy.name} ${trophy.description}`.toLowerCase().includes(term);
       });
       resultCount.textContent = `${matches.length} of ${trophies.length} trophies`;
@@ -240,6 +279,35 @@ async function boot() {
     status.textContent = tracker.storageAvailable ? message : 'Browser storage is unavailable. Export your progress to keep a copy.';
   }
 
+  document.addEventListener('keydown', event => {
+    if (event.defaultPrevented || event.isComposing || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (event.key === 'Escape' && byId.has(selectedId)) {
+      event.preventDefault();
+      closeTrophy();
+      return;
+    }
+    if (view !== 'list' || !(event.target instanceof Element)) return;
+    if (event.target.matches('input:not([type="checkbox"]), select, textarea') || event.target.isContentEditable) return;
+
+    if (event.key === '/') {
+      event.preventDefault();
+      search.focus();
+      return;
+    }
+
+    if (detail.contains(event.target)) return;
+    const direction = { ArrowDown: 1, j: 1, ArrowUp: -1, k: -1 }[event.key];
+    if (direction !== 1 && direction !== -1) return;
+    const rows = [...content.querySelectorAll('.trophy-row')];
+    if (!rows.length) return;
+    const index = rows.indexOf(event.target.closest('.trophy-row'));
+    const next = index < 0
+      ? (direction === 1 ? 0 : rows.length - 1)
+      : Math.max(0, Math.min(rows.length - 1, index + direction));
+    event.preventDefault();
+    rows[next].querySelector('.trophy-trigger').focus();
+  });
+
   listView.addEventListener('click', () => { view = 'list'; render(); });
   roadmapView.addEventListener('click', () => { view = 'roadmap'; render(); });
   for (const button of kindButtons) {
@@ -248,6 +316,7 @@ async function boot() {
   grade.addEventListener('change', render);
   search.addEventListener('input', render);
   spoiler.addEventListener('change', render);
+  remaining.addEventListener('change', render);
   exportButton.addEventListener('click', () => tracker.export());
   importButton.addEventListener('click', () => importFile.click());
   importFile.addEventListener('change', async () => {
