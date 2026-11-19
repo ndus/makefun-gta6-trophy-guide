@@ -8,615 +8,613 @@
       "name": "Vice Got a Price!",
       "description": "Congratulations! You're a Leonida Legend.",
       "grade": "platinum",
-      "guide": "Finish every other trophy; the platinum unlocks automatically when the list is complete. Check the in-game progress screen for anything still outstanding.",
+      "guide": "Use the grade totals to locate unfinished trophies, then filter or search for each remaining target. Earn the other 54 trophies; this platinum is the final award, not a separate activity. Back up your tracker before a cleanup session.",
       "kind": "other",
       "missable": false,
       "stage": 6,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #1."
     },
     {
       "id": 2,
       "name": "Just Like Paradise",
       "description": "Complete Gone Fishing.",
       "grade": "bronze",
-      "guide": "Play through the opening Gone Fishing mission and complete its final objective. It is the first mandatory story mission, so simply follow the prompts to the end.",
+      "guide": "Start with Gone Fishing in the campaign, following the active mission objectives rather than looking for a free-roam fishing activity. Finish the mission before marking this trophy earned; the title of an activity alone is not the requirement.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "Official PlayStation trophy list (via Exophase)"
+      "source": "Kit starter · official trophy list (2026-11-18), #2."
     },
     {
       "id": 3,
       "name": "Paradise Lost",
       "description": "Complete Chapter 1.",
       "grade": "bronze",
-      "guide": "Complete every required mission in Chapter 1 until the chapter-ending notification appears. Keep progressing through the story rather than free-roaming between objectives.",
+      "guide": "Work through the campaign missions in order and use the active objective to resume after free roaming. This target is Chapter 1 completion, so an unfinished optional activity is not a reason to delay the chapter. Keep a separate save before story decisions.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #3."
     },
     {
       "id": 4,
       "name": "T**s Ass Drug Money",
       "description": "Complete Chapter 2.",
       "grade": "bronze",
-      "guide": "Advance through all Chapter 2 missions and finish the chapter finale. Make a manual save before major decisions so you can replay a missed moment.",
+      "guide": "Resume the campaign after Chapter 1 and finish Chapter 2. If you have several objectives available, prioritize the main story for this trophy and leave a manual save before choices for Actions Speak Louder.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "Official PlayStation trophy list (via Exophase)"
+      "source": "Kit starter · official trophy list (2026-11-18), #4."
     },
     {
       "id": 5,
       "name": "Vice City, Baby!",
       "description": "Complete Chapter 3.",
       "grade": "bronze",
-      "guide": "Clear the Chapter 3 mission chain and its closing mission. Follow the phone and map prompts until the game confirms Chapter 3 is complete.",
+      "guide": "Continue the campaign into Chapter 3 and finish its remaining story objectives. Use a separate save slot before major choices, then check your trophy list after the chapter ends so a missed notification does not send you looking for extra tasks.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #5."
     },
     {
       "id": 6,
       "name": "Top Of The World, Ma",
       "description": "Complete Chapter 4.",
       "grade": "bronze",
-      "guide": "Finish every Chapter 4 objective, including its final mission. The trophy pops after the chapter completion screen, before the endgame sequence.",
+      "guide": "Finish Chapter 4 through the campaign objectives. Before pushing toward the final mission, preserve a manual save and review Actions Speak Louder; chapter completion and a particular choice outcome are separate checklist targets.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "Official PlayStation trophy list (via Exophase)"
+      "source": "Kit starter · official trophy list (2026-11-18), #6."
     },
     {
       "id": 7,
       "name": "You Gotta Know When to Get Off",
       "description": "Complete the final mission.",
       "grade": "gold",
-      "guide": "Complete the campaign’s final mission and watch its ending sequence through the completion screen. This is a single story checkpoint, so keep a manual save before starting it.",
+      "guide": "Make a separate manual save before the campaign finale, then finish the final mission. Check Actions Speak Louder before committing to ending choices so you retain a way to revisit an outcome; the final-mission description itself does not establish a missable trophy.",
       "kind": "story",
-      "missable": true,
+      "missable": false,
       "stage": 1,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #7."
     },
     {
       "id": 8,
       "name": "Trust",
       "description": "Complete Breakfast Run.",
       "grade": "bronze",
-      "guide": "Locate the Breakfast Run marker as it appears in the story and finish the mission. Stay with the objective route until the post-mission reward appears.",
+      "guide": "Look for Breakfast Run among your campaign objectives and complete that named mission. If it is not yet offered, continue earlier story work; there is no reason in the description to search restaurants or repeat unrelated driving jobs.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #8."
     },
     {
       "id": 9,
       "name": "Break the Bank",
       "description": "Complete The Cartel Heist.",
       "grade": "bronze",
-      "guide": "Start The Cartel Heist from its mission marker and complete every heist phase. The trophy unlocks when the escape and debrief are finished.",
+      "guide": "Reserve a session long enough to finish The Cartel Heist, including any escape objectives still shown on screen. Save before starting so you can return to the setup if needed, and check the trophy list once the mission is over.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #9."
     },
     {
       "id": 10,
       "name": "Family Matters",
       "description": "Complete Child's Play.",
       "grade": "bronze",
-      "guide": "Accept Child’s Play from its story marker and see the mission through to its conclusion. Follow the prompted objectives rather than abandoning the mission midway.",
+      "guide": "Progress the campaign until Child's Play is available, then follow its active objectives through completion. Keep your pre-mission save separate from your roaming save; this trophy asks for mission completion rather than a special performance target.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "Official PlayStation trophy list (via Exophase)"
+      "source": "Kit starter · official trophy list (2026-11-18), #10."
     },
     {
       "id": 11,
       "name": "DWNFALL",
       "description": "Complete Headliners.",
       "grade": "bronze",
-      "guide": "Complete the Headliners mission chain and its final objective. Remain in the mission until the completion banner registers the result.",
+      "guide": "Follow the campaign to Headliners and finish the named mission. If the trophy remains locked, check whether Headliners is actually complete before replaying unrelated objectives; the description does not demand a medal or optional challenge.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #11."
     },
     {
       "id": 12,
       "name": "Hi-Jacked",
       "description": "Complete VCIA Takedown.",
       "grade": "bronze",
-      "guide": "Play VCIA Takedown when it becomes available and finish the full operation. A clean completion is enough; no special score is required.",
+      "guide": "Complete VCIA Takedown through the campaign. Keep this separate from Catch Me If You Can: both refer to VCIA, but completing this named mission is not proof that you have met the other trophy's departure requirement.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #12."
     },
     {
       "id": 13,
       "name": "Snow Storm",
       "description": "Complete Operation Savage Glory.",
       "grade": "bronze",
-      "guide": "Launch Operation Savage Glory from its marker and complete the entire mission. Do not quit during the final escape before the results screen.",
+      "guide": "When Operation Savage Glory becomes available, save before starting and follow its objectives until the mission is complete. Check your trophy list afterward; the description gives no optional score or difficulty requirement to chase.",
       "kind": "story",
       "missable": false,
       "stage": 1,
-      "source": "Official PlayStation trophy list (via Exophase)"
+      "source": "Kit starter · official trophy list (2026-11-18), #13."
     },
     {
       "id": 14,
       "name": "A Long Road",
       "description": "Attain 100% Completion.",
       "grade": "gold",
-      "guide": "Complete the campaign and all listed world activities until the tracker reaches 100%. Use the completion checklist to find missing collectibles, challenges, properties, and strands.",
+      "guide": "Use the game's completion record, where available, to identify unfinished requirements, then cross-check those with this guide. Work by category and region rather than replaying already finished content; do not assume that 100% completion and all 55 trophies are the same checklist.",
       "kind": "other",
       "missable": false,
       "stage": 6,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #14."
     },
     {
       "id": 15,
       "name": "Cunning Stunts",
       "description": "Complete 250 Stunts.",
       "grade": "silver",
-      "guide": "Perform 250 stunt jumps or other counted stunts around Leonida. Repeat reliable ramps and verify each one registers in the activity tracker.",
+      "guide": "During exploration, note convenient stunt locations and keep track of which attempts actually advance your total. Use a safe approach with room to build speed and land, then check progress before repeating a route; the description does not confirm that repeating one stunt counts.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #15."
     },
     {
       "id": 16,
       "name": "Master of None",
       "description": "Try each type of activity once.",
       "grade": "bronze",
-      "guide": "Attempt every activity category at least once, including races, shooting, fishing, arcade, and the other listed types. The activity checklist records the first completion in each category.",
+      "guide": "Keep a short list of activity types you have tried and sample a new category whenever you pass one. Prioritize missing types over improving scores on familiar ones; consult the game's activity records, where available, before declaring a category done.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "Exophase — Grand Theft Auto VI (PS5) trophy list"
+      "source": "Kit starter · official trophy list (2026-11-18), #16."
     },
     {
       "id": 17,
       "name": "The Shootist",
       "description": "Earn a gold medal in all Shooting Range challenges.",
       "grade": "silver",
-      "guide": "Visit each Shooting Range and earn gold on every challenge. Practice weapon handling first, then replay short stages to improve accuracy and time until all medals are gold.",
+      "guide": "Practice one Shooting Range challenge at a time and compare your result with its gold target. Use the displayed scoring rules to decide whether accuracy or speed needs work, then move on only after gold is recorded; revisit every remaining challenge at the end.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #17."
     },
     {
       "id": 18,
       "name": "Top Fun",
       "description": "Win a Top Fun Drone Race at every location.",
       "grade": "bronze",
-      "guide": "Win a Top Fun drone race at every marked location across Leonida. Revisit any missed icon from the map activity filter and finish first, not merely complete the course.",
+      "guide": "Record the locations where you have won a Top Fun Drone Race. On a new course, learn the turns on an initial run and retry for first place; revisiting a location you have already won will not cover a missing location.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #18."
     },
     {
       "id": 19,
       "name": "Earn Cash, Not Kudos",
       "description": "Win 20 different races.",
       "grade": "bronze",
-      "guide": "Enter different race events and place first in 20 unique races. Track completed events so you do not repeatedly win the same course.",
+      "guide": "Keep a list of race events you have won, aiming for a new event each time. Learn braking points before a serious attempt, then record the victory only after the result; repeated wins on one race do not satisfy twenty different races.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #19."
     },
     {
       "id": 20,
       "name": "Baited My Tackle",
       "description": "Beat Cal in a fishing challenge.",
       "grade": "bronze",
-      "guide": "Find Cal’s fishing challenge and beat his target catch or score. Bring suitable tackle and retry the challenge if your first attempt ends below his result.",
+      "guide": "Take Cal's fishing challenge and read its displayed win condition before choosing tackle or a fishing spot. Spend an attempt learning the controls and target, then adjust your approach to beat Cal rather than merely finishing a fishing session.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "Exophase — Grand Theft Auto VI (PS5) trophy list"
+      "source": "Kit starter · official trophy list (2026-11-18), #20."
     },
     {
       "id": 21,
       "name": "Stick Fiddler",
       "description": "Complete an arcade game.",
       "grade": "bronze",
-      "guide": "Enter any arcade and complete one full game, including its final round or score screen. Choose the shortest cabinet if you only need the trophy.",
+      "guide": "Choose an arcade game you can reliably play through and set aside time for a complete run. Follow that cabinet's own end condition rather than quitting after one round or a high score; the description asks for a completed game.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #21."
     },
     {
       "id": 22,
       "name": "Road to Rehabilitation",
       "description": "Complete the final mission for Andy.",
       "grade": "bronze",
-      "guide": "Follow Andy’s stranger strand through every task and complete his final mission. Finish the finale when it appears so the strand is recorded as complete.",
+      "guide": "Prioritize Andy when choosing side missions and keep notes on his last completed task. Return to his remaining contact or objective after each job, working toward his finale; count the finished strand toward Strangers & Freaks as well.",
       "kind": "story",
       "missable": false,
       "stage": 2,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #22."
     },
     {
       "id": 23,
       "name": "This Was No Boat Accident",
       "description": "Complete the final mission for Kenton.",
       "grade": "bronze",
-      "guide": "Complete Kenton’s stranger missions and launch his concluding mission. Stay until the final dialogue and reward sequence has ended.",
+      "guide": "Follow Kenton's side missions as a chain rather than treating the first job as completion. Note where the last task left you and check for his next objective after it; finish his finale and include the strand in your eight-strand tally.",
       "kind": "story",
       "missable": false,
       "stage": 2,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #23."
     },
     {
       "id": 24,
       "name": "The Lone Rider",
       "description": "Complete the final mission for Billy.",
       "grade": "bronze",
-      "guide": "Work through Billy’s strand and complete the last mission offered by him. The trophy registers after the finale, so do not leave before the result.",
+      "guide": "Work through Billy's available tasks and record the most recent one so you can resume the chain after other activities. Finish his final mission before counting this strand toward Strangers & Freaks; individual jobs are not separate strands.",
       "kind": "story",
       "missable": false,
       "stage": 2,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #24."
     },
     {
       "id": 25,
       "name": "Strangers & Freaks",
       "description": "Complete 8 mission strands for strangers across the state of Leonida.",
       "grade": "silver",
-      "guide": "Finish eight complete stranger mission strands anywhere in Leonida. Use the map’s stranger markers and complete each chain through its finale rather than counting individual jobs.",
+      "guide": "Maintain a tally of finished storylines, not individual side missions. Start with Andy, Kenton, Billy, Randy and Tyrone to combine their finale trophies with this target, then complete three more stranger strands across Leonida.",
       "kind": "story",
       "missable": false,
       "stage": 2,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #25."
     },
     {
       "id": 26,
       "name": "Supply & Demand",
       "description": "Complete the final mission for Randy.",
       "grade": "bronze",
-      "guide": "Complete Randy’s stranger strand and its final mission. Return to the marked contact after each task until the concluding objective is cleared.",
+      "guide": "Return to Randy's objectives between other side missions so his chain is not left half-finished. Track the last completed job, continue to his final mission, and count the completed storyline toward your eight stranger strands.",
       "kind": "story",
       "missable": false,
       "stage": 2,
-      "source": "Official PlayStation trophy list (via Exophase)"
+      "source": "Kit starter · official trophy list (2026-11-18), #26."
     },
     {
       "id": 27,
       "name": "Spin On This!",
       "description": "Complete the final mission for Tyrone.",
       "grade": "bronze",
-      "guide": "Follow Tyrone’s strand to its final mission and complete the ending objective. If the contact disappears, advance time and check the map again.",
+      "guide": "Keep Tyrone's tasks together in your notes so an unfinished chain is easy to resume. Follow any remaining objective for him through the final mission; finishing this strand also contributes to Strangers & Freaks.",
       "kind": "story",
       "missable": false,
       "stage": 2,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #27."
     },
     {
       "id": 28,
       "name": "Positive Mental Attitude",
       "description": "Meditate at every spot across Leonida.",
       "grade": "bronze",
-      "guide": "Visit every meditation spot shown across Leonida and use the interaction prompt at each one. The tracker updates after the meditation animation finishes.",
+      "guide": "Sweep one region at a time and record each meditation spot you have used, not just visited. Interact at the spot before moving on; save a note or map reference for any location you cannot complete so the final sweep has a clear route.",
       "kind": "collectibles",
       "missable": false,
       "stage": 3,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #28."
     },
     {
       "id": 29,
       "name": "Fair Game",
       "description": "Hunt a unique animal for Bret.",
       "grade": "bronze",
-      "guide": "Accept Bret’s hunt and track the unique animal using the clues and search area. Skin or report the animal as instructed to complete the objective.",
+      "guide": "Find Bret's hunting objective before hunting at random, then use any directions it provides to identify the unique animal. Prepare equipment before the hunt and follow the objective's instructions; the description does not establish a one-time availability window.",
       "kind": "activities",
       "missable": true,
       "stage": 4,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #29.",
+      "missable_note": "Bret’s hunt for a unique animal may be a one-off, so complete it when he offers it before moving on to mop-up."
     },
     {
       "id": 30,
       "name": "Don't Touch My Deck",
       "description": "Complete 3 Collectible Card sets.",
       "grade": "silver",
-      "guide": "Collect enough cards to finish three complete collectible sets, then turn in each set through its collection menu. Mark found cards on the map to avoid duplicate pickups.",
+      "guide": "Choose three card sets to focus on and track their missing cards separately. Check your collection before retracing a route so you search for gaps rather than duplicates; three partial sets are not the same as three completed sets.",
       "kind": "collectibles",
       "missable": false,
       "stage": 3,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #30."
     },
     {
       "id": 31,
       "name": "You WAiNKer!",
       "description": "WAiNK It at 100 locations.",
       "grade": "silver",
-      "guide": "Use the WAiNK It interaction at 100 distinct marked locations. Follow the map checklist and confirm each location registers before moving on.",
+      "guide": "Keep a regional checklist of locations where you have used WAiNK It. Aim for new locations on each outing and verify the interaction completes before leaving; a hundred uses at one location would not establish a hundred locations.",
       "kind": "collectibles",
       "missable": false,
       "stage": 3,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #31."
     },
     {
       "id": 32,
       "name": "One Last Thing",
       "description": "Complete 50 Challenges.",
       "grade": "bronze",
-      "guide": "Complete 50 separate challenges from the challenge list, including combat, driving, and exploration tasks. Mix easy categories and check progress after each batch.",
+      "guide": "Review the challenges you have available and start with targets close to completion. Combine compatible objectives in one outing, then record completed challenges rather than attempts; switch to another target if one repeatedly stalls.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "Exophase — Grand Theft Auto VI (PS5) trophy list"
+      "source": "Kit starter · official trophy list (2026-11-18), #32."
     },
     {
       "id": 33,
       "name": "Hot Together",
       "description": "Lose a 4 star Wanted Level with your partner and escape the heat.",
       "grade": "bronze",
-      "guide": "With your partner present, deliberately raise the wanted level to four stars, then break line of sight and survive until the level clears. Do it during the partner window because the setup is a one-off story opportunity.",
-      "kind": "online",
+      "guide": "With your partner present, choose a durable vehicle and plan an escape route before drawing police attention. Reach four stars, then break pursuit and let the wanted level fully clear while still together; the description does not identify an online-only or one-off window.",
+      "kind": "activities",
       "missable": true,
       "stage": 4,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #33.",
+      "missable_note": "You need your partner with you when you lose the four-star Wanted Level, so earn this during the story before you ride alone."
     },
     {
       "id": 34,
       "name": "Retail Therapy",
       "description": "Rob 3 shops back-to-back with your partner without losing your Wanted Level.",
       "grade": "bronze",
-      "guide": "Start with your partner, rob three different shops consecutively, and keep the wanted level active between robberies. Avoid hiding or being arrested until the third shop is cleared.",
-      "kind": "online",
+      "guide": "Scout a short route between three shops before starting with your partner. Keep a getaway vehicle nearby, complete the robberies consecutively, and avoid hiding long enough to clear your wanted level between stops; escape only after the third robbery.",
+      "kind": "activities",
       "missable": true,
       "stage": 4,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #34.",
+      "missable_note": "Rob three shops in a row while your partner is available and keep a manual save before the run in case you lose your Wanted Level and need to retry."
     },
     {
       "id": 35,
       "name": "Whip It Good",
       "description": "Discover 100 vehicles.",
       "grade": "bronze",
-      "guide": "Drive or inspect 100 different vehicle models so the game logs them as discovered. Vary streets, dealerships, and mission vehicles, then verify the vehicle discovery count.",
+      "guide": "Vary the areas and vehicle types you investigate rather than repeatedly using familiar models. Keep a list or use discovery records where available, checking whether a new vehicle registers before spending time hunting another of the same type.",
       "kind": "collectibles",
       "missable": false,
       "stage": 3,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #35."
     },
     {
       "id": 36,
       "name": "Gunslinger",
       "description": "Take down 5 enemies in a single use of Combat Focus.",
       "grade": "bronze",
-      "guide": "Activate Combat Focus during a dense enemy encounter and defeat five enemies before it ends. Weaken targets first, then trigger the ability for a reliable single-use count.",
+      "guide": "Choose an encounter with at least five enemies in reach, prepare a loaded weapon, and line up targets before activating Combat Focus. Avoid wasting the ability while repositioning: all five takedowns must fit inside the same activation.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #36."
     },
     {
       "id": 37,
       "name": "Catch Me If You Can",
       "description": "Make an unscheduled departure at VCIA.",
       "grade": "bronze",
-      "guide": "Reach VCIA and trigger the unscheduled departure event from the airport area. Follow the resulting escape until the game awards the trophy.",
+      "guide": "Visit VCIA while exploring and inspect the available departure or vehicle interactions. Save before trying an escape so a failed experiment does not cost progress; the exact trigger behind “unscheduled departure” is not specified by the trophy list.",
       "kind": "activities",
       "missable": true,
       "stage": 4,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #37.",
+      "missable_note": "Make the unscheduled departure during the story operation at VCIA, since you may need to replay it once the story moves on."
     },
     {
       "id": 38,
       "name": "Challenging Tank",
       "description": "Kinda hot in these Rhinos.",
       "grade": "bronze",
-      "guide": "Complete the Rhino-related encounter and survive the tank sequence. Use cover, explosives, and a fast escape route, then finish the event rather than abandoning it.",
+      "guide": "The Rhino wording is a clue, but the list supplies no exact action or location. Preserve a manual save before experimenting with a Rhino-related encounter and check the trophy result after each distinct attempt; a specific tank sequence is not verified here.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "Exophase — Grand Theft Auto VI (PS5) trophy list"
+      "source": "Kit starter · official trophy list (2026-11-18), #38."
     },
     {
       "id": 39,
       "name": "Sneakthief",
       "description": "Rob a jewelry store without being detected.",
       "grade": "bronze",
-      "guide": "Enter the marked jewelry store and take the loot without alerting staff or triggering detection. Scout the entrance, stay concealed, and leave only after the robbery registers.",
+      "guide": "Scout the jewelry store before taking loot and look for a route that avoids staff and other detection risks. Make a manual save before trying, then reload or retry if detected instead of finishing a loud robbery and expecting the stealth requirement to count.",
       "kind": "activities",
-      "missable": true,
+      "missable": false,
       "stage": 5,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #39."
     },
     {
       "id": 40,
       "name": "Maximum Withdrawal",
       "description": "Rob 5 Bank Vaults and escape.",
       "grade": "silver",
-      "guide": "Rob five separate bank vaults, then escape each scene successfully. Plan exits and clear the wanted level after every vault so the five successful robberies are counted.",
+      "guide": "Plan an entry and getaway before opening a bank vault. Track five completed vault robberies with successful escapes, not just vaults reached; check that each attempt has concluded before starting the next.",
       "kind": "activities",
       "missable": false,
       "stage": 5,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #40."
     },
     {
       "id": 41,
       "name": "A Classic Blitz Play",
       "description": "Rob an Armored Truck and escape.",
       "grade": "bronze",
-      "guide": "Intercept an armored truck, complete the robbery, and get away from the response. Keep driving until the wanted level is gone and the event completion triggers.",
+      "guide": "Prepare a getaway vehicle and a route away from the armored truck before the robbery. Finish taking the loot and complete the escape rather than stopping as soon as the truck is opened; both parts are explicit requirements.",
       "kind": "activities",
       "missable": false,
       "stage": 5,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #41."
     },
     {
       "id": 42,
       "name": "The Goodtime State",
       "description": "Explore all of Leonida.",
       "grade": "bronze",
-      "guide": "Reveal and physically visit every region of Leonida until the exploration tracker is complete. Use the map’s undiscovered-area overlay to find small gaps between major landmarks.",
+      "guide": "Work around Leonida region by region, checking the map for places you have not visited. Combine the sweep with meditation spots, WAiNK It locations and vehicle discovery, keeping a note of gaps to revisit instead of repeatedly crossing familiar roads.",
       "kind": "collectibles",
       "missable": false,
       "stage": 3,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #42."
     },
     {
       "id": 43,
       "name": "Pest Control",
       "description": "Rob an Illegal Operation belonging to each gang.",
       "grade": "bronze",
-      "guide": "Rob one illegal operation run by each gang in the state. Record the gang names as you go and finish the escape for each operation so all entries count.",
+      "guide": "Track gang names alongside successful operation robberies so you can see which gangs remain. Prioritize an operation belonging to a new gang over another target from one already covered; use ownership information when available to avoid guessing.",
       "kind": "activities",
       "missable": false,
       "stage": 5,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #43."
     },
     {
       "id": 44,
       "name": "In The Beginning…",
       "description": "Enjoy a cocktail with a view on Ocean Beach.",
       "grade": "bronze",
-      "guide": "Go to Ocean Beach, order a cocktail at the appropriate venue, and position yourself where the view prompt appears. Let the drink and view interaction finish before leaving.",
+      "guide": "Head to Ocean Beach and look for a place to enjoy a cocktail overlooking the beach. Try the relevant drink interaction there and let it finish before checking your trophies; the list does not name a specific venue or view prompt.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "Exophase — Grand Theft Auto VI (PS5) trophy list"
+      "source": "Kit starter · official trophy list (2026-11-18), #44."
     },
     {
       "id": 45,
       "name": "Capital Offense",
       "description": "Smash your way out of a vehicle showroom in classic style.",
       "grade": "bronze",
-      "guide": "Enter the vehicle showroom and trigger the classic smash-and-escape sequence. Break through the showroom exit in the prompted vehicle, then get clear of the scene.",
+      "guide": "At a vehicle showroom, save before experimenting and look for a way to drive a vehicle out through the showroom. Plan your exit before attracting attention; the description suggests a smash-out but does not verify a scripted sequence or required vehicle.",
       "kind": "activities",
       "missable": true,
       "stage": 5,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #45.",
+      "missable_note": "The showroom escape may be a one-off story event, so keep a manual save beforehand and smash your way out in classic style when it happens."
     },
     {
       "id": 46,
       "name": "Let’s Go Bowling",
       "description": "Follow-through at the Kolt & Associates' bowling alley.",
       "grade": "bronze",
-      "guide": "Visit the Kolt & Associates bowling alley and complete a bowling throw or game there. Stay through the follow-through animation for the trophy check.",
+      "guide": "Visit Kolt & Associates' bowling alley and inspect its available interactions. The description does not explain what “follow-through” means, so save before experimenting and check the trophy list after a completed interaction rather than assuming one throw is confirmed.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #46."
     },
     {
       "id": 47,
       "name": "Personal Best",
       "description": "A partnership with mass appeal.",
       "grade": "bronze",
-      "guide": "Complete the designated partner activity that produces the mass-appeal partnership moment. Start it with your partner and finish the scene when the collaboration prompt appears.",
-      "kind": "online",
-      "missable": true,
+      "guide": "“A partnership with mass appeal” is the only unlock clue in the supplied list; it does not confirm an activity, online mode or location. Keep a save before partnership-related story decisions and note the context if this unlocks, rather than grinding an invented target.",
+      "kind": "activities",
+      "missable": false,
       "stage": 4,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #47."
     },
     {
       "id": 48,
       "name": "Actions Speak Louder",
       "description": "Choices made (for better or worse).",
       "grade": "bronze",
-      "guide": "Make choices throughout missions and activities until the game’s choice counter reaches the required total. Keep progressing normally and review the tracker rather than forcing one scene.",
-      "kind": "other",
-      "missable": false,
-      "stage": 6,
-      "source": "Exophase — Grand Theft Auto VI (PS5) trophy list"
+      "guide": "Save to a separate slot before committing to each story choice. Check your trophies after the outcome; retain that save until this unlocks.",
+      "kind": "story",
+      "missable": true,
+      "stage": 1,
+      "source": "Kit starter · official trophy list (2026-11-18), #48.",
+      "missable_note": "Story choices can close off an outcome in “Choices made (for better or worse),” so keep a manual save before story choices."
     },
     {
       "id": 49,
       "name": "Bad Luck, I Guess",
       "description": "Second time's the charm.",
       "grade": "bronze",
-      "guide": "Attempt the relevant activity, fail or miss the first try, then succeed on the immediate second attempt. Do not reset the activity between attempts or the counter may not register.",
+      "guide": "The clue mentions a second time but does not identify the event or confirm a deliberate failure requirement. Save before experimenting with a suspected encounter and record the attempt sequence; do not sacrifice progress based on an assumed immediate-second-try counter.",
       "kind": "activities",
       "missable": true,
       "stage": 4,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #49.",
+      "missable_note": "“Second time’s the charm” suggests the retry could be easy to miss, so see the encounter through to the second attempt if the first goes wrong."
     },
     {
       "id": 50,
       "name": "The Truth Is Out There",
       "description": "What the hell just happened?",
       "grade": "bronze",
-      "guide": "Investigate the strange encounter when its event appears and remain nearby through the unexpected outcome. One complete observation is enough; leaving early can prevent the trigger.",
+      "guide": "This description gives no confirmed location, time or action. Keep a manual save before investigating an unusual encounter and note where and when it occurs; check the trophy list afterward instead of treating any particular observation trigger as verified.",
       "kind": "activities",
       "missable": true,
       "stage": 3,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide",
-      "missable_note": "This can be missed because it is tied to a one-off event; complete it when the moment appears and keep a manual save beforehand."
+      "source": "Kit starter · official trophy list (2026-11-18), #50.",
+      "missable_note": "The strange event may only happen once, so stop and investigate when something unexplained happens in Leonida."
     },
     {
       "id": 51,
       "name": "Ten Pin",
       "description": "Bowl 'em over with a melee drive-by.",
       "grade": "bronze",
-      "guide": "Use a melee attack from a moving vehicle to knock down a target during a drive-by. Approach slowly, line up beside the target, and land the hit before speeding away.",
+      "guide": "Choose a clear stretch of road and approach a target slowly enough to line up beside it. Use the available vehicle melee controls at close range, then check the result; a firearm drive-by would not meet the stated melee requirement.",
       "kind": "activities",
       "missable": false,
       "stage": 4,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #51."
     },
     {
       "id": 52,
       "name": "Dime on the Dollar",
       "description": "Earn $250,000 laundering Marked Bills through your contacts.",
       "grade": "bronze",
-      "guide": "Earn a cumulative $250,000 by laundering Marked Bills through your contacts. Complete the available laundering jobs and collect each payout until the total reaches the threshold.",
+      "guide": "Use your contacts to launder Marked Bills and record the amounts earned from completed transactions. Prioritize that income over unrelated cash sources for this target; aim for $250,000 earned through laundering rather than merely holding that much money.",
       "kind": "other",
       "missable": false,
       "stage": 5,
-      "source": "PowerPyx — GTA VI Trophy Guide and Roadmap"
+      "source": "Kit starter · official trophy list (2026-11-18), #52."
     },
     {
       "id": 53,
       "name": "Treat Yo Self",
       "description": "Spend $100,000 across all shops.",
       "grade": "bronze",
-      "guide": "Spend a combined $100,000 at shops across Leonida on clothing, weapons, food, or other stock. The total is cumulative, so buy normal upgrades while exploring.",
+      "guide": "Combine useful shop purchases with this spending target instead of buying filler immediately. Track your combined spending toward $100,000 and preserve enough money for garages; the requirement is spending across shops, not carrying that cash balance.",
       "kind": "other",
       "missable": false,
       "stage": 5,
-      "source": "PSNProfiles — Grand Theft Auto VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #53."
     },
     {
       "id": 54,
       "name": "Little Boxes",
       "description": "Purchase all garage properties.",
       "grade": "bronze",
-      "guide": "Purchase every garage property available in the property listings. Save enough cash, buy each location, and confirm ownership in the property management screen.",
+      "guide": "List the garage properties you can purchase and compare prices with your available cash. Buy missing garages over duplicate or unrelated property investments, then check ownership after each purchase; save major spending for after you have budgeted the remaining garages.",
       "kind": "other",
       "missable": false,
       "stage": 5,
-      "source": "PlayStationTrophies.org — GTA VI Trophy Guide"
+      "source": "Kit starter · official trophy list (2026-11-18), #54."
     },
     {
       "id": 55,
       "name": "On the Spot",
       "description": "Register 10 vehicles to the Scooter Bros app.",
       "grade": "bronze",
-      "guide": "Find ten eligible vehicles and submit each through the Scooter Bros app registration flow. Wait for confirmation after every submission so the registration counter advances.",
+      "guide": "Check the Scooter Bros app for registration instructions before sourcing vehicles. Take one eligible vehicle through the full registration process and confirm it is accepted before hunting the next; keep a tally of ten completed registrations.",
       "kind": "collectibles",
       "missable": false,
       "stage": 3,
-      "source": "Exophase — Grand Theft Auto VI (PS5) trophy list"
+      "source": "Kit starter · official trophy list (2026-11-18), #55."
     }
   ]
 }

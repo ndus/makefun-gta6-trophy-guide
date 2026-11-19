@@ -8,7 +8,7 @@ An offline guide and progress tracker for all 55 GTA VI trophies on PlayStation 
 
 Search the checklist, filter by kind or grade, and look for missable flags when planning a playthrough. Follow the platinum roadmap to plan your route, and turn on the spoiler shield to hide details until you're ready to see them.
 
-Trophy names and descriptions come from the official PlayStation list. Every guide was written for this entry and has a source citation beside it.
+Trophy names, descriptions and grades match the official list supplied in the kit starter (2026-11-18). Every guide is original planning advice inferred from that list, with its source identified in the detail panel. Exact triggers not established by the list are explicitly marked as uncertain. The choice-driven #48 is conservatively flagged missable; other descriptions do not establish permanent lockouts. Partner trophies are not assumed to require online play.
 
 Run `node serve.ts` from the repository root and open <http://localhost:8080>. You can also use any static file server rooted at `app/`.
 

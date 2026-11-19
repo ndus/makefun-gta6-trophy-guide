@@ -116,10 +116,11 @@ async function captureScenes() {
     const send = connect(browser);
 
     try {
-      const { targetId } = await send('Target.createTarget', { url: 'about:blank' });
-      const { sessionId } = await send('Target.attachToTarget', { targetId, flatten: true });
-
       for (const { file, query, viewport } of scenes) {
+        // Isolate localStorage so one preset cannot seed the next capture.
+        const { browserContextId } = await send('Target.createBrowserContext');
+        const { targetId } = await send('Target.createTarget', { url: 'about:blank', browserContextId });
+        const { sessionId } = await send('Target.attachToTarget', { targetId, flatten: true });
         await send('Emulation.setDeviceMetricsOverride', {
           ...viewport,
           deviceScaleFactor: 1,
@@ -141,6 +142,7 @@ async function captureScenes() {
         }
         writeFileSync(join('screenshots', file), bytes);
         console.log(file + ' (' + bytes.length + ' bytes)');
+        await send('Target.disposeBrowserContext', { browserContextId });
       }
     } finally {
       const killTimer = setTimeout(() => browser.kill('SIGKILL'), 2000);

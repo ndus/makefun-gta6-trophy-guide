@@ -50,7 +50,7 @@ export function createTracker(trophies) {
       link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     },
-    async import(file) {
+    async importProgress(file) {
       const snapshot = JSON.parse(await file.text());
       const ids = Array.isArray(snapshot)
         ? snapshot.map(value => idsByName.get(value) ?? value)

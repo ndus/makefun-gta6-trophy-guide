@@ -1,5 +1,5 @@
 import { createTracker } from './tracker.js';
-import { renderRoadmap, stages } from './roadmap.js';
+import { stages } from './stages.js';
 
 const content = document.getElementById('content');
 const detail = document.getElementById('detail');
@@ -41,6 +41,8 @@ async function boot() {
   const kindButtons = [...kinds.querySelectorAll('button')];
 
   let view = query.get('view') === 'roadmap' ? 'roadmap' : 'list';
+  let renderRoadmap;
+  let roadmapPromise;
   let kind = kindButtons.some(button => button.dataset.kind === query.get('kind')) ? query.get('kind') : 'all';
   let selectedId = Number(query.get('open'));
   grade.value = grades.includes(query.get('grade')) ? query.get('grade') : 'all';
@@ -138,11 +140,11 @@ async function boot() {
         element('p', 'detail-muted', 'Select a trophy to read its guide, roadmap stage and source.'));
       if (view === 'roadmap') {
         const jumps = element('ol', 'stage-jumps');
-        stages.forEach(([name], index) => {
+        stages.forEach((name, index) => {
           const item = element('li');
           const jump = element('button', '', name);
           jump.type = 'button';
-          jump.addEventListener('click', () => content.querySelector(`#stage-${index + 1} h3`).focus());
+          jump.addEventListener('click', () => content.querySelector(`#stage-${index + 1} h3`)?.focus());
           item.append(jump);
           jumps.append(item);
         });
@@ -162,16 +164,18 @@ async function boot() {
       renderDetail();
       (findRowControl(previous, '.trophy-trigger') ?? (view === 'list' ? search : roadmapView)).focus();
     });
-    heading.append(element('span', 'eyebrow', 'TROPHY GUIDE'), close);
     const title = element('h3', '', nameOf(trophy));
     title.tabIndex = -1;
     const tags = element('div', 'detail-tags');
     tags.append(gradeChip(trophy.grade));
     if (trophy.missable) tags.append(element('span', 'missable', 'MISSABLE'));
 
-    detailContent.append(heading, title, tags, element('p', 'detail-muted', descriptionOf(trophy)));
-    detailContent.append(element('p', 'stage-reference', `Stage ${trophy.stage} · ${stages[trophy.stage - 1][0]}`));
-    detailContent.append(element('h4', '', 'How to unlock'));
+    heading.append(title, close);
+    detailContent.append(heading, tags, element('p', 'detail-muted', descriptionOf(trophy)));
+    detailContent.append(element('p', 'stage-reference', `Stage ${trophy.stage} · ${stages[trophy.stage - 1]}`));
+    const citation = element('p', 'citation');
+    citation.append(element('strong', '', 'Source: '), trophy.source);
+    detailContent.append(citation);
 
     if (masked(trophy)) {
       const reveal = element('button', 'reveal', 'Turn off spoiler shield');
@@ -183,14 +187,13 @@ async function boot() {
       });
       detailContent.append(element('p', 'guide-text', 'The guide may reveal story spoilers.'), reveal);
     } else {
-      detailContent.append(element('p', 'guide-text', trophy.guide));
       if (trophy.missable_note) {
         const note = element('div', 'missable-note');
-        note.append(element('h4', '', 'Missable note'), element('p', 'guide-text', trophy.missable_note));
+        note.append(element('h4', '', 'Missable · save before choices'), element('p', 'guide-text', trophy.missable_note));
         detailContent.append(note);
       }
+      detailContent.append(element('h4', 'guide-label', 'How to unlock'), element('p', 'guide-text', trophy.guide));
     }
-    detailContent.append(element('p', 'citation', `Source: ${trophy.source}`));
   }
 
   function render() {
@@ -202,7 +205,18 @@ async function boot() {
 
     if (onRoadmap) {
       resultCount.textContent = '6 stages';
-      content.replaceChildren(renderRoadmap(trophies, tracker.has, renderRow));
+      if (renderRoadmap) {
+        content.replaceChildren(renderRoadmap(trophies, tracker.has, renderRow));
+      } else {
+        content.replaceChildren(element('p', 'empty', 'Loading roadmap…'));
+        roadmapPromise ??= import('./roadmap.js').then(module => {
+          renderRoadmap = module.renderRoadmap;
+          if (view === 'roadmap') render();
+        }).catch(() => {
+          roadmapPromise = undefined;
+          status.textContent = 'Could not load the roadmap. Select Roadmap to retry.';
+        });
+      }
     } else {
       for (const button of kindButtons) button.setAttribute('aria-pressed', String(button.dataset.kind === kind));
       const term = search.value.trim().toLowerCase();
@@ -240,7 +254,7 @@ async function boot() {
     const file = importFile.files[0];
     if (!file) return;
     try {
-      await tracker.import(file);
+      await tracker.importProgress(file);
       saveStatus('Progress imported.');
       render();
     } catch {
