@@ -1,85 +1,82 @@
-const STORAGE_KEY = 'gta6-trophy-checklist';
-const EXPORT_FILENAME = 'leonida-platinum-progress.json';
-const PROGRESS_VERSION = 1;
+const Tracker = (() => {
+  const key = 'gta6-trophy-tracker-v1';
+  const earned = new Set();
+  let validIds = new Set();
+  let preview = false;
 
-function downloadProgress(earned) {
-  const snapshot = { version: PROGRESS_VERSION, earned: [...earned].sort((a, b) => a - b) };
-  const file = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(file);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = EXPORT_FILENAME;
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
+  function apply(ids) {
+    const next = ids.map(id => typeof id === 'string' && /^\d+$/.test(id) ? Number(id) : id);
+    earned.clear();
+    for (const id of next) {
+      if (validIds.has(id)) earned.add(id);
+    }
+  }
 
-export function createTracker(trophies) {
-  const validIds = new Set(trophies.map(({ id }) => id));
-  const idsByName = new Map(trophies.map(({ name, id }) => [name, id]));
-  let earned = new Set();
-  let storageAvailable = true;
-
-  // Legacy saves and exports used trophy names as their identifiers.
-  const resolveLegacyIds = entries => entries.map(entry => idsByName.get(entry) ?? entry);
-
-  function restore() {
-    let raw;
-    try {
-      raw = localStorage.getItem(STORAGE_KEY);
-    } catch {
-      storageAvailable = false;
+  function load(trophies, seed) {
+    validIds = new Set(trophies.map(trophy => trophy.id));
+    preview = seed !== null;
+    if (preview) {
+      apply(seed.split(','));
       return;
     }
     try {
-      const entries = JSON.parse(raw ?? '[]');
-      if (Array.isArray(entries)) {
-        earned = new Set(resolveLegacyIds(entries).filter(id => validIds.has(id)));
-      }
+      const stored = JSON.parse(localStorage.getItem(key));
+      const ids = Array.isArray(stored) ? stored : stored?.earned;
+      apply(Array.isArray(ids) ? ids : []);
     } catch {
-      // A malformed save leaves the checklist empty and storage usable.
+      apply([]);
     }
+  }
+
+  function snapshot() {
+    return { version: 1, earned: [...earned].sort((a, b) => a - b) };
   }
 
   function save() {
+    if (preview) return true;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([...earned]));
-      storageAvailable = true;
+      localStorage.setItem(key, JSON.stringify(snapshot()));
+      return true;
     } catch {
-      storageAvailable = false;
+      return false;
     }
   }
 
-  async function importProgress(file) {
-    const snapshot = JSON.parse(await file.text());
-    const entries = Array.isArray(snapshot)
-      ? resolveLegacyIds(snapshot)
-      : snapshot?.version === PROGRESS_VERSION ? snapshot.earned : null;
-    if (!Array.isArray(entries) || !entries.every(id => validIds.has(id))) {
-      throw new Error('Invalid trophy progress');
-    }
-    earned = new Set(entries);
-    save();
+  function toggle(id) {
+    if (!validIds.has(id)) return false;
+    if (!earned.delete(id)) earned.add(id);
+    return save();
   }
 
-  restore();
+  function counts(trophies) {
+    const grades = Object.fromEntries(['platinum', 'gold', 'silver', 'bronze'].map(grade => [grade, { earned: 0, total: 0 }]));
+    for (const trophy of trophies) {
+      const count = grades[trophy.grade];
+      count.total++;
+      if (earned.has(trophy.id)) count.earned++;
+    }
+    const total = trophies.length;
+    return { grades, total, earned: earned.size, percent: total ? Math.round(100 * earned.size / total) : 0 };
+  }
 
-  return {
-    get size() { return earned.size; },
-    get storageAvailable() { return storageAvailable; },
-    has: id => earned.has(id),
-    set(id, checked) {
-      if (!validIds.has(id)) return;
-      if (checked) earned.add(id);
-      else earned.delete(id);
-      save();
-    },
-    seed(ids) {
-      for (const id of ids) {
-        if (validIds.has(id)) earned.add(id);
-      }
-      save();
-    },
-    export: () => downloadProgress(earned),
-    importProgress,
-  };
-}
+  function exportState() {
+    const url = URL.createObjectURL(new Blob([JSON.stringify(snapshot(), null, 2)], { type: 'application/json' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'leonida-progress.json';
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  async function importState(file) {
+    const data = JSON.parse(await file.text());
+    const ids = Array.isArray(data) ? data : data?.earned;
+    if (!Array.isArray(ids) || ids.some(id => !validIds.has(typeof id === 'string' && /^\d+$/.test(id) ? Number(id) : id))) {
+      throw new Error('Choose a progress backup with valid trophy IDs.');
+    }
+    apply(ids);
+    return save();
+  }
+
+  return { earned, load, save, toggle, counts, exportState, importState, get preview() { return preview; } };
+})();

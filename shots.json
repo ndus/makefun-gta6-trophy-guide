@@ -1,6 +1,6 @@
 [
-  { "file": "1-cover.jpg", "query": "?earned=2,3,4,8,9,15&open=15", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-roadmap.jpg", "query": "?view=roadmap", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-missable.jpg", "query": "?kind=missable&open=48", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "4-spoiler.jpg", "query": "?spoiler=1&earned=2,3", "viewport": { "width": 1280, "height": 800 } }
+  {"file":"1-cover.jpg","query":"?earned=2,3,4,8,9,15&open=15","viewport":{"width":1280,"height":800}},
+  {"file":"2-roadmap.jpg","query":"?view=roadmap","viewport":{"width":1280,"height":800}},
+  {"file":"3-missable.jpg","query":"?kind=missable&open=48","viewport":{"width":1280,"height":800}},
+  {"file":"4-spoiler.jpg","query":"?spoiler=1&earned=2,3","viewport":{"width":1280,"height":800}}
 ]

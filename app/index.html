@@ -3,84 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#110d1c">
-  <link rel="stylesheet" href="style.css">
   <title>Leonida Platinum · GTA VI Trophy Guide</title>
-  <script type="module" src="app.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="stages.js"></script>
+  <script defer src="tracker.js"></script>
+  <script defer src="roadmap.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#collection-title">Skip to checklist</a>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">✦</span> Leonida Platinum</a>
-      <span class="platform">GRAND THEFT AUTO VI <span aria-hidden="true">/</span> PS5</span>
+  <header class="hero">
+    <div class="identity">
+      <p class="eyebrow">Grand Theft Auto VI / PlayStation 5</p>
+      <h1>Leonida <em>Platinum</em></h1>
+      <p class="subtitle">Offline trophy guide &amp; checklist</p>
     </div>
-  </header>
-  <main class="shell">
-    <section class="hero" aria-labelledby="title">
-      <div class="hero-art" aria-hidden="true"><span class="sun"></span><span class="skyline"></span><span class="water"></span></div>
-      <div class="hero-copy">
-        <p class="eyebrow">GRAND THEFT AUTO VI · TROPHY GUIDE</p>
-        <h1 id="title">Leonida <em>Platinum</em></h1>
-        <p class="subtitle">Track all 55 PlayStation 5 trophies offline.</p>
-      </div>
-      <section class="progress-card" aria-labelledby="progress-label">
-        <div class="progress-header"><h2 class="eyebrow" id="progress-label">YOUR PROGRESS</h2><span id="percentage">0%</span></div>
-        <progress id="progress-bar" value="0" max="55" aria-labelledby="progress-label"></progress>
-        <p class="progress-copy" id="progress-copy" aria-live="polite">Loading trophies…</p>
-        <div id="grade-counts" class="grade-counts"></div>
-      </section>
+    <section class="progress-card" aria-label="Trophy progress">
+      <p class="eyebrow">Your progress</p>
+      <div class="progress-line"><strong id="progress-count">0 / 55</strong><span id="percent">0%</span></div>
+      <progress id="progress" max="55" value="0" aria-label="Trophies earned"></progress>
+      <div id="grades" class="grade-totals"></div>
     </section>
-
-    <div class="toolbar">
-      <nav class="view-nav" aria-label="Guide views">
-        <button id="list-view" type="button" aria-pressed="true">Trophy list</button>
-        <button id="roadmap-view" type="button" aria-pressed="false">Roadmap</button>
-      </nav>
-      <div class="utilities">
-        <label class="shield"><input id="spoiler" type="checkbox"><span>Spoiler shield</span></label>
-        <label class="shield" id="remaining-option">
-          <input id="remaining" type="checkbox" aria-label="Remaining only"><span>Remaining only</span>
-        </label>
-        <button id="export" type="button" disabled>Export</button>
-        <button id="import" type="button" disabled>Import</button>
-        <input id="import-file" type="file" accept=".json,application/json" hidden>
+  </header>
+  <main>
+    <nav class="views" aria-label="Guide views">
+      <button type="button" id="checklist-view" aria-pressed="true">Checklist</button>
+      <button type="button" id="roadmap-view" aria-pressed="false">Roadmap</button>
+    </nav>
+    <section id="checklist" aria-labelledby="list-title">
+      <div class="toolbar">
+        <div class="tools">
+          <label class="search"><span>Search trophies</span><input id="search" type="search" placeholder="Name, description, or grade"></label>
+          <label class="switch"><input type="checkbox" id="remaining"> Remaining only</label>
+          <label class="switch"><input type="checkbox" id="spoiler"> Hide story spoilers</label>
+          <div class="backup">
+            <button type="button" id="export">Export</button>
+            <button type="button" id="import">Import</button>
+            <input type="file" id="backup-file" accept=".json,application/json" hidden>
+          </div>
+        </div>
+        <div class="chips" id="kinds" role="group" aria-label="Filter by kind">
+          <button data-kind="all" aria-pressed="true">All</button>
+          <button data-kind="story" aria-pressed="false">Story</button>
+          <button data-kind="missable" aria-pressed="false">Missable</button>
+          <button data-kind="collectibles" aria-pressed="false">Collectibles</button>
+          <button data-kind="activities" aria-pressed="false">Activities</button>
+          <button data-kind="online" aria-pressed="false">Online</button>
+          <button type="button" id="reset-filters">Reset filters</button>
+        </div>
       </div>
-    </div>
-    <p id="status" class="status" role="status"></p>
-
-    <div class="workspace">
-      <section class="collection" aria-labelledby="collection-title">
-        <div class="collection-heading">
-          <h2 id="collection-title" tabindex="-1">Trophy checklist</h2>
-          <span id="result-count"></span>
+      <p id="notice" role="status"></p>
+      <div class="workspace">
+        <div>
+          <div class="list-heading"><h2 id="list-title">Trophy checklist</h2><span id="result-count" aria-live="polite">Loading…</span></div>
+          <ul id="trophies" class="trophy-list" aria-label="Trophies"></ul>
         </div>
-        <div id="filters" class="filters">
-          <div id="kinds" class="kinds" role="group" aria-label="Trophy kind">
-            <button type="button" data-kind="all" aria-pressed="true">All</button>
-            <button type="button" data-kind="story" aria-pressed="false">Story</button>
-            <button type="button" data-kind="missable" aria-pressed="false">Missable</button>
-            <button type="button" data-kind="collectibles" aria-pressed="false">Collectibles</button>
-            <button type="button" data-kind="activities" aria-pressed="false">Activities</button>
-            <button type="button" data-kind="online" aria-pressed="false">Online</button>
-          </div>
-          <div class="filter-fields">
-            <label class="search"><span class="sr-only">Search trophies</span><input id="search" type="search" placeholder="Search trophies…"></label>
-            <label><span class="sr-only">Filter by grade</span><select id="grade">
-              <option value="all">All grades</option>
-              <option value="platinum">Platinum</option>
-              <option value="gold">Gold</option>
-              <option value="silver">Silver</option>
-              <option value="bronze">Bronze</option>
-            </select></label>
-          </div>
-        </div>
-        <div id="content"></div>
-      </section>
-      <aside class="detail" id="detail" aria-label="Trophy guide">
-        <div id="detail-content"></div>
-      </aside>
-    </div>
+        <aside id="detail" class="detail" aria-labelledby="detail-title"></aside>
+      </div>
+    </section>
+    <section id="roadmap" aria-labelledby="roadmap-title" hidden></section>
   </main>
 </body>
 </html>
